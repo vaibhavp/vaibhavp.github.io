@@ -17,8 +17,8 @@
       <pubDate>Mon, 14 Jun 2021 17:31:48 +0530</pubDate>
       
       <guid>https://www.vaibhavp.dev/blog/running-kubernetes-on-rhel-7.9/</guid>
-      <description>We know what is Kubernetes and how much it&amp;rsquo;s important in today&amp;rsquo;s world of micro-services. So today we are going to see how to create a Kubernetes cluster on Red Hat Linux 7. For this tutorial we are going to use RHEL 7.9 version.
-In this Kubernetes we are just going to have only one node cluster i.e. we will use kubeadm tool to install all Kubernetes master node components on single node.</description>
+      <description>Introduction We know what is Kubernetes and how much it&amp;rsquo;s important in today&amp;rsquo;s world of micro-services. So today we are going to see how to create a Kubernetes cluster on Red Hat Linux 7. For this tutorial we are going to use RHEL 7.9 version.
+In this Kubernetes cluster we are just going to have only one node cluster i.e. we will use kubeadm tool to install all Kubernetes master node components on single node.</description>
     </item>
     
   </channel>

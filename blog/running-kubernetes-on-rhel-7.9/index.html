@@ -80,18 +80,17 @@ if (!doNotTrack) {
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="blogpost">
-              <p>We know what is Kubernetes and how much it&rsquo;s important in today&rsquo;s world of micro-services. So today we are going to see how to create a Kubernetes cluster on Red Hat Linux 7. For this tutorial we are going to use RHEL 7.9 version.</p>
-<p>In this Kubernetes we are just going to have only one node cluster i.e. we will use <code>kubeadm</code> tool to install all Kubernetes master node components on single node. On master node following components will be installed.</p>
+              <h1 id="introduction">Introduction</h1>
+<p>We know what is Kubernetes and how much it&rsquo;s important in today&rsquo;s world of micro-services. So today we are going to see how to create a Kubernetes cluster on Red Hat Linux 7. For this tutorial we are going to use RHEL 7.9 version.</p>
+<p>In this Kubernetes cluster we are just going to have only one node cluster i.e. we will use <code>kubeadm</code> tool to install all Kubernetes master node components on single node. On master node following components will be installed.</p>
 <ul>
 <li><strong>API Server</strong> – It provides Kubernetes API using Jason / Yaml over http, states of API objects are stored in etcd</li>
 <li><strong>Scheduler</strong> – It is a program on master node which performs the scheduling tasks like launching containers in worker nodes based on resource availability</li>
 <li><strong>Controller Manager</strong> – Main Job of Controller manager is to monitor replication controllers and create pods to maintain desired state.</li>
 <li><strong>etcd</strong> – It is a Key value pair data base. It stores configuration data of cluster and cluster state.</li>
-<li><strong>Kubectl utility</strong> – It is a command line utility which connects to API Server on port</li>
+<li><strong>Kubectl utility</strong> – It is a command line utility which connects to API Server on port 6443. It is used by administrators to create pods, services etc.</li>
 </ul>
-<ol start="6443">
-<li>It is used by administrators to create pods, services etc.</li>
-</ol>
+<p><img src="/img/k8s-archi-diagram.svg" alt="kube-arch"></p>
 <p>Please follow below steps to setup your own Kubernetes cluster.</p>
 <h1 id="step-1-disable-selinux--setup-firewall-rules">Step 1: Disable SELinux &amp; setup firewall rules</h1>
 <p>Login into you RHEL7 host and disable the selinux and setup firewall rule.</p>
@@ -185,6 +184,8 @@ if (!doNotTrack) {
 
 eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLXY1N253Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiIwMzAzMjQzYy00MDQwLTRhNTgtOGE0Ny04NDllZTliYTc5YzEiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.Z2JrQlitASVwWbc-s6deLRFVk5DWD3P_vjUFXsqVSY10pbjFLG4njoZwh8p3tLxnX_VBsr7_6bwxhWSYChp9hwxznemD5x5HLtjb16kI9Z7yFWLtohzkTwuFbqmQaMoget_nYcQBUC5fDmBHRfFvNKePh_vSSb2h_aYXa8GV5AcfPQpY7r461itme1EXHQJqv-SN-zUnguDguCTjD80pFZ_CmnSE1z9QdMHPB8hoB4V68gtswR1VLa6mSYdgPwCHauuOobojALSaMc3RH7MmFUumAgguhqAkX3Omqd3rJbYOMRuMjhANqd08piDC3aIabINX6gP5-Tuuw2svnV6NYQ
 </code></pre></div><p>Use above generated token for Dashboard login.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Thus we have seen how to create a single node cluster on your RHEL 7.9 host. Also deployed a simple app provided by the Kubernetes community to control your cluster using simple UI.</p>
 
               <hr>
               <div class="related-posts">
