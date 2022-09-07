@@ -197,3 +197,7 @@ div.footer{
   padding-bottom: 15px;
   
 }*/
+.video-shortcode {
+  max-width: 100%;
+  height: auto;
+}
