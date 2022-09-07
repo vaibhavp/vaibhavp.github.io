@@ -6,30 +6,9 @@
     <description>Recent content on Vaibhav Pathak</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 06 Sep 2022 19:54:08 +0200</lastBuildDate>
     
 	<atom:link href="https://www.vaibhavp.dev/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Running Own VPN</title>
-      <link>https://www.vaibhavp.dev/blog/running-own-vpn/</link>
-      <pubDate>Tue, 06 Sep 2022 19:54:08 +0200</pubDate>
-      
-      <guid>https://www.vaibhavp.dev/blog/running-own-vpn/</guid>
-      <description>Introduction Of course, we all do know what is VPN and why we need one. Here I am not going to explain to you guys what is VPN and how it works and all. Here I am going to talk about how you can set up your own VPN server in any geographic location.
-Recently I moved to a new country. But after arriving here I realised that now I won&amp;rsquo;t be able to watch all my digital content like web series, movies and some mobile applications which work in my home country only.</description>
-    </item>
-    
-    <item>
-      <title>Running Kubernetes on RHEL 7.9</title>
-      <link>https://www.vaibhavp.dev/blog/running-kubernetes-on-rhel-7.9/</link>
-      <pubDate>Mon, 14 Jun 2021 17:31:48 +0530</pubDate>
-      
-      <guid>https://www.vaibhavp.dev/blog/running-kubernetes-on-rhel-7.9/</guid>
-      <description>Introduction We know what is Kubernetes and how much it&amp;rsquo;s important in today&amp;rsquo;s world of micro-services. So today we are going to see how to create a Kubernetes cluster on Red Hat Linux 7. For this tutorial we are going to use RHEL 7.9 version.
-In this Kubernetes cluster we are just going to have only one node cluster i.e. we will use kubeadm tool to install all Kubernetes master node components on single node.</description>
-    </item>
     
   </channel>
 </rss>
