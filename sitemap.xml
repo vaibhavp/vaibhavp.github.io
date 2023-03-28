@@ -4,16 +4,21 @@
   
   <url>
     <loc>https://www.vaibhavp.dev/blog/</loc>
-    <lastmod>2022-09-06T19:54:08+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.vaibhavp.dev/blog/running-own-vpn/</loc>
-    <lastmod>2022-09-06T19:54:08+02:00</lastmod>
+    <lastmod>2023-03-28T10:11:26+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://www.vaibhavp.dev/</loc>
+    <lastmod>2023-03-28T10:11:26+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.vaibhavp.dev/blog/why-use-kong-api-gateway/</loc>
+    <lastmod>2023-03-28T10:11:26+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.vaibhavp.dev/blog/running-own-vpn/</loc>
     <lastmod>2022-09-06T19:54:08+02:00</lastmod>
   </url>
   
