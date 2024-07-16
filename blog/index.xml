@@ -6,10 +6,15 @@
     <description>Recent content in Blogs on Vaibhav Pathak</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 06 Sep 2022 19:54:08 +0200</lastBuildDate>
-    
-	<atom:link href="https://www.vaibhavp.dev/blog/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 28 Mar 2023 10:11:26 +0530</lastBuildDate><atom:link href="https://www.vaibhavp.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why Use Kong API Gateway</title>
+      <link>https://www.vaibhavp.dev/blog/why-use-kong-api-gateway/</link>
+      <pubDate>Tue, 28 Mar 2023 10:11:26 +0530</pubDate>
+      
+      <guid>https://www.vaibhavp.dev/blog/why-use-kong-api-gateway/</guid>
+      <description>Introduction Kong API Gateway is a cloud-native API gateway that is based on the Nginx reverse proxy. It is a simple, fast, and lightweight solution that enables you to control, set up, and direct application-to-dedicated server request routing. The Kong API Gateway helps regulate who can access the services and data that are managed behind it. It ensures data security by allowing only authorized users and apps to access the data.</description>
+    </item>
     
     <item>
       <title>Running Own VPN</title>

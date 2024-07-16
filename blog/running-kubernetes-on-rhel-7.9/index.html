@@ -8,7 +8,7 @@
     <meta name="description" content="My Personal Blog and Digital Presence">
     <link rel="shortcut icon" type="image/x-icon" href="https://www.vaibhavp.dev/img/favicon.ico">
     <title>Running Kubernetes on RHEL 7.9</title>
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.106.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://www.vaibhavp.dev/css/main.css" />
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -32,7 +32,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
   </head>
 
   <body>
@@ -94,96 +93,96 @@ if (!doNotTrack) {
 <p>Please follow below steps to setup your own Kubernetes cluster.</p>
 <h1 id="step-1-disable-selinux--setup-firewall-rules">Step 1: Disable SELinux &amp; setup firewall rules</h1>
 <p>Login into you RHEL7 host and disable the selinux and setup firewall rule.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo setenforce <span style="color:#ae81ff">0</span>
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo sed -i --follow-symlinks <span style="color:#e6db74">&#39;s/SELINUX=enforcing/SELINUX=disabled/g&#39;</span> /etc/sysconfig/selinux
-
-<span style="color:#75715e"># Now will set firewall rules.</span>
-<span style="color:#75715e"># Note first checks if you have a firewall installed or not. If you are using the GCP instance then you don&#39;t require to do it.</span>  
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --permanent --add-port<span style="color:#f92672">=</span>6443/tcp
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --permanent --add-port<span style="color:#f92672">=</span>2379-2380/tcp
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --permanent --add-port<span style="color:#f92672">=</span>10250/tcp
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --permanent --add-port<span style="color:#f92672">=</span>10251/tcp
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --permanent --add-port<span style="color:#f92672">=</span>10252/tcp
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --permanent --add-port<span style="color:#f92672">=</span>10255/tcp
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --reload
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo modprobe br_netfilter
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo echo <span style="color:#e6db74">&#39;1&#39;</span> &gt; /proc/sys/net/bridge/bridge-nf-call-iptables
-</code></pre></div><h1 id="step-2-disable-swap">Step 2: Disable Swap</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo setenforce <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo sed -i --follow-symlinks <span style="color:#e6db74">&#39;s/SELINUX=enforcing/SELINUX=disabled/g&#39;</span> /etc/sysconfig/selinux
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Now will set firewall rules.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Note first checks if you have a firewall installed or not. If you are using the GCP instance then you don&#39;t require to do it.  </span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --permanent --add-port<span style="color:#f92672">=</span>6443/tcp
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --permanent --add-port<span style="color:#f92672">=</span>2379-2380/tcp
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --permanent --add-port<span style="color:#f92672">=</span>10250/tcp
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --permanent --add-port<span style="color:#f92672">=</span>10251/tcp
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --permanent --add-port<span style="color:#f92672">=</span>10252/tcp
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --permanent --add-port<span style="color:#f92672">=</span>10255/tcp
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo firewall-cmd --reload
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo modprobe br_netfilter
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo echo <span style="color:#e6db74">&#39;1&#39;</span> &gt; /proc/sys/net/bridge/bridge-nf-call-iptables
+</span></span></code></pre></div><h1 id="step-2-disable-swap">Step 2: Disable Swap</h1>
 <p>Disable Swap in all nodes using “swapoff -a” command and remove or comment out swap partitions or swap file from fstab file</p>
 <h1 id="step-3-cofigure-kubernetes-repository">Step 3: Cofigure Kubernetes Repository</h1>
 <p>Use below command to configure its package repositories.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo cat <span style="color:#e6db74">&lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
-</span><span style="color:#e6db74">&gt; [kubernetes]
-</span><span style="color:#e6db74">&gt; name=Kubernetes
-</span><span style="color:#e6db74">&gt; baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
-</span><span style="color:#e6db74">&gt; enabled=1
-</span><span style="color:#e6db74">&gt; gpgcheck=1
-</span><span style="color:#e6db74">&gt; repo_gpgcheck=1
-</span><span style="color:#e6db74">&gt; gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
-</span><span style="color:#e6db74">&gt;         https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-</span><span style="color:#e6db74">&gt; EOF</span> 
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span>#
-</code></pre></div><h1 id="step-4-install-kubeadm-and-docker">Step 4: Install Kubeadm and Docker</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo cat <span style="color:#e6db74">&lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&gt; [kubernetes]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&gt; name=Kubernetes
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&gt; baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&gt; enabled=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&gt; gpgcheck=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&gt; repo_gpgcheck=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&gt; gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&gt;         https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&gt; EOF</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span><span style="color:#75715e">#</span>
+</span></span></code></pre></div><h1 id="step-4-install-kubeadm-and-docker">Step 4: Install Kubeadm and Docker</h1>
 <p>Now its time to install <code>Docker</code> and <code>Kubeadm</code> tool which we will required for installing and running kubernetes cluster components.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo yum install kubeadm docker -y
-
-<span style="color:#75715e"># After installing kubeadm and docker restart its services.</span>
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo systemctl restart docker <span style="color:#f92672">&amp;&amp;</span> sudo systemctl enable docker
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo systemctl  restart kubelet <span style="color:#f92672">&amp;&amp;</span> sudo systemctl enable kubelet
-</code></pre></div><h1 id="step-4-initialize-kubernetes-master-node-with-kubeadm-init">Step 4: Initialize Kubernetes Master Node with ‘kubeadm init’</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo yum install kubeadm docker -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># After installing kubeadm and docker restart its services.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo systemctl restart docker <span style="color:#f92672">&amp;&amp;</span> sudo systemctl enable docker
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo systemctl  restart kubelet <span style="color:#f92672">&amp;&amp;</span> sudo systemctl enable kubelet
+</span></span></code></pre></div><h1 id="step-4-initialize-kubernetes-master-node-with-kubeadm-init">Step 4: Initialize Kubernetes Master Node with ‘kubeadm init’</h1>
 <p>Now we are going to initialize the process of creating Kubernetes cluster.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo kubeadm init --pod-network-cidr<span style="color:#f92672">=</span>192.168.0.0/16
-.
-.
-.# After completing this command 
-.
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> mkdir -p $HOME/.kube
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo chown <span style="color:#66d9ef">$(</span>id -u<span style="color:#66d9ef">)</span>:<span style="color:#66d9ef">$(</span>id -g<span style="color:#66d9ef">)</span> $HOME/.kube/config
-</code></pre></div><h1 id="setp-5-install-cni-plugin">Setp 5: Install CNI plugin</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo kubeadm init --pod-network-cidr<span style="color:#f92672">=</span>192.168.0.0/16
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.# After completing this command 
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> mkdir -p $HOME/.kube
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> sudo chown <span style="color:#66d9ef">$(</span>id -u<span style="color:#66d9ef">)</span>:<span style="color:#66d9ef">$(</span>id -g<span style="color:#66d9ef">)</span> $HOME/.kube/config
+</span></span></code></pre></div><h1 id="setp-5-install-cni-plugin">Setp 5: Install CNI plugin</h1>
 <p>Now we are going to install <code>calico</code> for our cluster networking part.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> kubectl taint nodes --all node-role.kubernetes.io/master-
-
-<span style="color:#75715e">#Noe check your node it ready or not</span> 
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> kubectl get nodes -o wide
-</code></pre></div><p>Here we complete the cluster creation, now we can use it.  In next step we will see how to deploy web ui for our cluster on it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> kubectl taint nodes --all node-role.kubernetes.io/master-
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Noe check your node it ready or not </span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> kubectl get nodes -o wide
+</span></span></code></pre></div><p>Here we complete the cluster creation, now we can use it.  In next step we will see how to deploy web ui for our cluster on it.</p>
 <h1 id="step-6-install-dashboard-on-cluster">Step 6: Install Dashboard on Cluster</h1>
 <p>Here we will deploy Dashboard to visualize our cluster.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
-</code></pre></div><p>This will deploy dashboard application in dashboard namespaces. Now we will create user for our dashboard.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> cat <span style="color:#e6db74">&lt;&lt;EOF | kubectl apply -f -
-</span><span style="color:#e6db74">apiVersion: v1
-</span><span style="color:#e6db74">kind: ServiceAccount
-</span><span style="color:#e6db74">metadata:
-</span><span style="color:#e6db74">  name: admin-user
-</span><span style="color:#e6db74">  namespace: kubernetes-dashboard
-</span><span style="color:#e6db74">EOF</span>
-
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> cat <span style="color:#e6db74">&lt;&lt;EOF | kubectl apply -f -
-</span><span style="color:#e6db74">apiVersion: rbac.authorization.k8s.io/v1
-</span><span style="color:#e6db74">kind: ClusterRoleBinding
-</span><span style="color:#e6db74">metadata:
-</span><span style="color:#e6db74">  name: admin-user
-</span><span style="color:#e6db74">roleRef:
-</span><span style="color:#e6db74">  apiGroup: rbac.authorization.k8s.io
-</span><span style="color:#e6db74">  kind: ClusterRole
-</span><span style="color:#e6db74">  name: cluster-admin
-</span><span style="color:#e6db74">subjects:
-</span><span style="color:#e6db74">- kind: ServiceAccount
-</span><span style="color:#e6db74">  name: admin-user
-</span><span style="color:#e6db74">  namespace: kubernetes-dashboard
-</span><span style="color:#e6db74">EOF</span>
-
-<span style="color:#75715e"># Now we need to find a token we can use to log in. Execute the following command:</span>
-
-<span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> kubectl -n kubernetes-dashboard get secret <span style="color:#66d9ef">$(</span>kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{.secrets[0].name}&#34;</span><span style="color:#66d9ef">)</span> -o go-template<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{.data.token | base64decode}}&#34;</span>
-
-<span style="color:#75715e">#It should print something like:</span>
-
-eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLXY1N253Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiIwMzAzMjQzYy00MDQwLTRhNTgtOGE0Ny04NDllZTliYTc5YzEiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.Z2JrQlitASVwWbc-s6deLRFVk5DWD3P_vjUFXsqVSY10pbjFLG4njoZwh8p3tLxnX_VBsr7_6bwxhWSYChp9hwxznemD5x5HLtjb16kI9Z7yFWLtohzkTwuFbqmQaMoget_nYcQBUC5fDmBHRfFvNKePh_vSSb2h_aYXa8GV5AcfPQpY7r461itme1EXHQJqv-SN-zUnguDguCTjD80pFZ_CmnSE1z9QdMHPB8hoB4V68gtswR1VLa6mSYdgPwCHauuOobojALSaMc3RH7MmFUumAgguhqAkX3Omqd3rJbYOMRuMjhANqd08piDC3aIabINX6gP5-Tuuw2svnV6NYQ
-</code></pre></div><p>Use above generated token for Dashboard login.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
+</span></span></code></pre></div><p>This will deploy dashboard application in dashboard namespaces. Now we will create user for our dashboard.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> cat <span style="color:#e6db74">&lt;&lt;EOF | kubectl apply -f -
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: ServiceAccount
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: admin-user
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  namespace: kubernetes-dashboard
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> cat <span style="color:#e6db74">&lt;&lt;EOF | kubectl apply -f -
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: rbac.authorization.k8s.io/v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: ClusterRoleBinding
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: admin-user
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">roleRef:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  apiGroup: rbac.authorization.k8s.io
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  kind: ClusterRole
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: cluster-admin
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">subjects:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- kind: ServiceAccount
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: admin-user
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  namespace: kubernetes-dashboard
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Now we need to find a token we can use to log in. Execute the following command:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@k8s-master ~<span style="color:#f92672">]</span> kubectl -n kubernetes-dashboard get secret <span style="color:#66d9ef">$(</span>kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{.secrets[0].name}&#34;</span><span style="color:#66d9ef">)</span> -o go-template<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{.data.token | base64decode}}&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#It should print something like:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLXY1N253Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiIwMzAzMjQzYy00MDQwLTRhNTgtOGE0Ny04NDllZTliYTc5YzEiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.Z2JrQlitASVwWbc-s6deLRFVk5DWD3P_vjUFXsqVSY10pbjFLG4njoZwh8p3tLxnX_VBsr7_6bwxhWSYChp9hwxznemD5x5HLtjb16kI9Z7yFWLtohzkTwuFbqmQaMoget_nYcQBUC5fDmBHRfFvNKePh_vSSb2h_aYXa8GV5AcfPQpY7r461itme1EXHQJqv-SN-zUnguDguCTjD80pFZ_CmnSE1z9QdMHPB8hoB4V68gtswR1VLa6mSYdgPwCHauuOobojALSaMc3RH7MmFUumAgguhqAkX3Omqd3rJbYOMRuMjhANqd08piDC3aIabINX6gP5-Tuuw2svnV6NYQ
+</span></span></code></pre></div><p>Use above generated token for Dashboard login.</p>
 <h1 id="conclusion">Conclusion</h1>
 <p>Thus we have seen how to create a single node cluster on your RHEL 7.9 host. Also deployed a simple app provided by the Kubernetes community to control your cluster using simple UI.</p>
 

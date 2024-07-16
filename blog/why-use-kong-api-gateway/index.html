@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Vaibhav Pathak" />
+    <meta name="description" content="My Personal Blog and Digital Presence">
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.vaibhavp.dev/img/favicon.ico">
+    <title>Why Use Kong API Gateway</title>
+    <meta name="generator" content="Hugo 0.106.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://www.vaibhavp.dev/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-161648531-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.vaibhavp.dev/"><i class="fa fa-home"></i></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/blog/">BLOG</a></li>
+        
+        <li><a href="/projects">PROJECTS</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="https://www.vaibhavp.dev/blog/why-use-kong-api-gateway/">Why Use Kong API Gateway</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          March 28, 2023
+            &nbsp;&nbsp;
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <h1 id="introduction">Introduction</h1>
+<p>Kong API Gateway is a cloud-native API gateway that is based on the Nginx reverse proxy. It is a simple, fast, and lightweight solution that enables you to control, set up, and direct application-to-dedicated server request routing. The Kong API Gateway helps regulate who can access the services and data that are managed behind it. It ensures data security by allowing only authorized users and apps to access the data. The Kong API Gateway is highly performant and offers the following features:</p>
+<ul>
+<li><strong>Request/Response Transformation</strong>: Kong can transform incoming and outgoing API requests and responses to conform to specific formats.</li>
+<li><strong>Authentication and Authorization</strong>: Kong supports various authentication methods, including API key, OAuth 2.0, and JWT, and can enforce authorization policies for APIs.</li>
+<li><strong>Traffic Management</strong>: Kong provides traffic management features, such as rate limiting, request throttling, and IP whitelisting, to maintain the reliability and stability of APIs.</li>
+<li><strong>Monitoring and Logging</strong>: Kong offers detailed metrics and logs to help monitor API performance and identify issues.</li>
+<li><strong>Plugins</strong>: Kong has a vast and continuously growing ecosystem of plugins that provide additional functionality, such as security, transformations, and integrations with other tools.</li>
+<li><strong>Microservice Architecture</strong>: Kong is designed to work with microservice architecture, providing a central point of control for API traffic and security.</li>
+<li><strong>Scalability</strong>: Kong is designed to scale horizontally, allowing it to handle large amounts of API traffic.</li>
+</ul>
+<h1 id="advantages-of-using-kong-as-an-api-gateway">Advantages of Using Kong as an API Gateway</h1>
+<p>Kong API Gateway is an efficient solution for managing APIs that offers advanced routing and management capabilities. With flexible request routing, automatic service discovery, advanced load balancing, comprehensive API management, and real-time analytics and monitoring, organizations can effectively route API traffic, discover and register APIs, distribute traffic across backend services, manage APIs throughout their lifecycle, and gain insight into API performance and usage. These capabilities make Kong a highly effective solution for managing APIs at scale and are essential for organizations looking to build and maintain a robust API infrastructure.</p>
+<p>One of the key benefits of Kong is access to a wide range of plugins that can be easily added to the gateway, such as authentication, rate limiting, and transformations.</p>
+<p>Another advantage of Kong is its flexible deployment options, which allow it to be deployed on-premises, in the cloud, or as a managed service, depending on the organization&rsquo;s needs. Additionally, Kong API Gateway provides improved security with features like authentication and authorization, encryption, and rate limiting that help protect sensitive data and prevent attacks on APIs.</p>
+<h1 id="use-cases-for-kong">Use Cases for Kong</h1>
+<p>Kong API Gateway can be used for the following purposes:</p>
+<ul>
+<li><strong>API Gateway</strong>: To manage and orchestrate microservices, providing a centralized management layer for APIs and ensuring that requests are routed to the appropriate services.</li>
+<li><strong>API security</strong>: To provide robust security features, such as authentication, authorization, and encryption, which can be used to secure APIs and protect sensitive data.</li>
+<li><strong>Rate limiting and traffic control</strong>: To control the rate at which API requests are processed, preventing APIs from becoming overwhelmed under heavy load.</li>
+<li><strong>Analytics and monitoring</strong>: To provide real-time analytics and monitoring capabilities, including request and response logging, API usage tracking, and error reporting, which can be used to gain insight into API performance and usage.</li>
+<li><strong>Service discovery and load balancing</strong>: To support advanced load balancing algorithms, such as round-robin, least connections, and IP hashing, enabling organizations to distribute API traffic across multiple backend services for improved reliability and performance.</li>
+</ul>
+<h1 id="getting-started-with-kong">Getting started with Kong</h1>
+<p>To install the Kong API gateway and experience it, we will use our local Kubernetes cluster set up with <a href="https://kind.sigs.k8s.io/docs/user/quick-start/">Kind</a>. Alternatively, you can use <a href="https://minikube.sigs.k8s.io/docs/start/">minikube</a> to set up your local Kubernetes cluster.</p>
+<h2 id="installing-kong-api-gateway-on-kind-cluster">Installing Kong API Gateway On Kind Cluster</h2>
+<h3 id="create-kind-cluster">Create Kind Cluster</h3>
+<ul>
+<li>Create a kind cluster using the below configuration in your local system.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bash -c <span style="color:#e6db74">&#34;cat &lt;&lt;EOF &gt; /tmp/kind-config.yaml &amp;&amp; kind create cluster --config /tmp/kind-config.yaml
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: kind.x-k8s.io/v1alpha4
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Cluster
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">name: kong-quick-start
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">networking:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  apiServerAddress: &#34;</span>0.0.0.0<span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  apiServerPort: 16443
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">nodes:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  - role: control-plane
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    extraPortMappings:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - listenAddress: &#34;</span>0.0.0.0<span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      protocol: TCP
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      hostPort: 80
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      containerPort: 80
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - listenAddress: &#34;</span>0.0.0.0<span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      protocol: TCP
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      hostPort: 443
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      containerPort: 443
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Set your kubeconfig context to use the kind-quick-start cluster</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl config use-context kind-kong-quick-start
+</span></span><span style="display:flex;"><span>$ kubectl cluster-info
+</span></span></code></pre></div><ul>
+<li>Create Kong Gateway secrets which are required for installation.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl create namespace kong
+</span></span><span style="display:flex;"><span>$ kubectl create secret generic kong-config-secret -n kong <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --from-literal<span style="color:#f92672">=</span>portal_session_conf<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;storage&#34;:&#34;kong&#34;,&#34;secret&#34;:&#34;super_secret_salt_string&#34;,&#34;cookie_name&#34;:&#34;portal_session&#34;,&#34;cookie_same_site&#34;:&#34;off&#34;,&#34;cookie_secure&#34;:false}&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --from-literal<span style="color:#f92672">=</span>admin_gui_session_conf<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;storage&#34;:&#34;kong&#34;,&#34;secret&#34;:&#34;super_secret_salt_string&#34;,&#34;cookie_name&#34;:&#34;admin_session&#34;,&#34;cookie_same_site&#34;:&#34;off&#34;,&#34;cookie_secure&#34;:false}&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --from-literal<span style="color:#f92672">=</span>pg_host<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;enterprise-postgresql.kong.svc.cluster.local&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --from-literal<span style="color:#f92672">=</span>kong_admin_password<span style="color:#f92672">=</span>kong <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --from-literal<span style="color:#f92672">=</span>password<span style="color:#f92672">=</span>kong
+</span></span><span style="display:flex;"><span>$ kubectl create secret generic kong-enterprise-license --from-literal<span style="color:#f92672">=</span>license<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;{}&#39;&#34;</span> -n kong --dry-run<span style="color:#f92672">=</span>client -o yaml | kubectl apply -f -
+</span></span></code></pre></div><ul>
+<li>We will also install Cert Manager because kong uses Cert Manager to provide required certificates.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ helm repo add jetstack https://charts.jetstack.io ; helm repo update
+</span></span><span style="display:flex;"><span>$ helm upgrade --install cert-manager jetstack/cert-manager --set installCRDs<span style="color:#f92672">=</span>true --namespace cert-manager --create-namespace
+</span></span><span style="display:flex;"><span>$ bash -c <span style="color:#e6db74">&#34;cat &lt;&lt;EOF | kubectl apply -n kong -f -
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: cert-manager.io/v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Issuer
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: quickstart-kong-selfsigned-issuer-root
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  selfSigned: {}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">---
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: cert-manager.io/v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Certificate
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: quickstart-kong-selfsigned-issuer-ca
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  commonName: quickstart-kong-selfsigned-issuer-ca
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  duration: 2160h0m0s
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  isCA: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  issuerRef:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    group: cert-manager.io
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    kind: Issuer
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    name: quickstart-kong-selfsigned-issuer-root
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  privateKey:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    algorithm: ECDSA
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    size: 256
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  renewBefore: 360h0m0s
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  secretName: quickstart-kong-selfsigned-issuer-ca
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">---
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: cert-manager.io/v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Issuer
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: quickstart-kong-selfsigned-issuer
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ca:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    secretName: quickstart-kong-selfsigned-issuer-ca
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Now we will install Kong using it Helm chart.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ helm repo add kong https://charts.konghq.com ; helm repo update
+</span></span><span style="display:flex;"><span>$ helm install quickstart kong/kong --namespace kong --values https://bit.ly/KongGatewayHelmValuesAIO
+</span></span></code></pre></div><ul>
+<li>Once all pods are running, try opening kong manager on your web browser using its domain. For example <a href="https://kong.127-0-0-1.nip.io/">https://kong.127-0-0-1.nip.io/</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ open <span style="color:#e6db74">&#34;https://</span><span style="color:#66d9ef">$(</span>kubectl get ingress --namespace kong quickstart-kong-manager -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{.spec.tls[0].hosts[0]}&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><ul>
+<li>You can also try to Curl Kong URL on your terminal.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ curl --silent --insecure -X GET https://kong.127-0-0-1.nip.io/api -H <span style="color:#e6db74">&#39;kong-admin-token:kong&#39;</span>
+</span></span></code></pre></div><h1 id="conclusion">Conclusion</h1>
+<p>Kong API Gateway is a cloud-native API gateway that uses the Nginx reverse proxy to provide advanced routing and management capabilities. It helps organizations efficiently manage their APIs by offering flexible request routing, automatic service discovery, advanced load balancing, comprehensive API management, and real-time analytics and monitoring. Kong also provides improved security with features such as authentication and authorization, encryption, and rate limiting, as well as access to a large plugin ecosystem. Additionally, Kong can be deployed on-premises, in the cloud, or as a managed service, making it an effective solution for managing APIs at scale.</p>
+
+              <hr>
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+              </div>
+            </div>
+          </div>
+          <hr>
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = '';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://www.vaibhavp.dev/js/docs.min.js"></script>
+<script src="https://www.vaibhavp.dev/js/main.js"></script>
+
+<script src="https://www.vaibhavp.dev/js/ie10-viewport-bug-workaround.js"></script>
+
+
+    
+  </body>
+</html>
